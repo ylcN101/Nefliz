@@ -50,6 +50,7 @@ const Auth = () => {
       })
 
       router.push('/profiles')
+      console.log('success')
     } catch (error) {
       console.log(error)
     }

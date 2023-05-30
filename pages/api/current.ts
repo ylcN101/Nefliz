@@ -12,6 +12,7 @@ export default async function handler(
 
   try {
     const { currentUser } = await serverAuth(req, res)
+    console.log('currentUser:', currentUser)
     return res.status(200).json(currentUser)
   } catch (error) {
     console.log('error:', error)

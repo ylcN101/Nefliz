@@ -13,6 +13,7 @@ export default async function handler(
 
     const { email, name, password } = req.body
 
+    console.log(req.body)
     const existingUser = await prismadb.user.findUnique({
       where: {
         email,
@@ -22,6 +23,8 @@ export default async function handler(
     if (existingUser) {
       return res.status(422).json({ error: 'Email taken' })
     }
+
+    console.log(existingUser)
 
     const hashedPassword = await bcrypt.hash(password, 12)
 
@@ -34,6 +37,8 @@ export default async function handler(
         emailVerified: new Date(),
       },
     })
+
+    console.log(user)
 
     return res.status(200).json(user)
   } catch (error) {

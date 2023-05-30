@@ -14,9 +14,9 @@ const Billboard = () => {
 
   if (!data) return null
   return (
-    <div className="relative h-[56.25vw]">
+    <div className="relative h-full md:h-[56.25vw]">
       <video
-        className="w-full h-[56.25vw]
+        className="w-full h-full md:h-[56.25vw]
       object-cover
       brightness-[60%]
       "
