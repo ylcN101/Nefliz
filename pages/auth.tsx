@@ -71,7 +71,7 @@ const Auth = () => {
   }, [email, name, password, login])
 
   return (
-    <div className="relative h-[100vw] w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
+    <div className="relative h-[100vw] w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover mt-[4rem] md:mt-0 lg:mt-0">
       <div className="bg-black w-full h-[100vw] lg:bg-opacity-50">
         <nav className="px-12 py-5"></nav>
         <div className="flex justify-center">
