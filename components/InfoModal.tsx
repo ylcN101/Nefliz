@@ -48,7 +48,6 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
             <video
               poster={data?.thumbnailUrl}
               src={data?.videoUrl}
-              autoPlay
               muted
               loop
               className="w-full brightness-[60%] object-cover h-full"></video>
