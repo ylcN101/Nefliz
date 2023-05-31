@@ -62,7 +62,7 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
                 {data?.title}
               </p>
               {data?.id ? (
-                <div className="flex flex-row gap-4">
+                <div className="flex flex-row gap-4 items-center">
                   <PlayButton movieId={data?.id} />
                   <FavoriteButton movieId={data?.id} />
                 </div>
