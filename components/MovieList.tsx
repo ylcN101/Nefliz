@@ -7,9 +7,10 @@ import { isEmpty } from 'lodash'
 interface MovieListProps {
   data: MovieInterface[]
   title: string
+  id?: string
 }
 
-const MovieList: React.FC<MovieListProps> = ({ data, title }) => {
+const MovieList: React.FC<MovieListProps> = ({ data, title, id }) => {
   if (isEmpty(data)) {
     return null
   }
@@ -20,7 +21,7 @@ const MovieList: React.FC<MovieListProps> = ({ data, title }) => {
         <p className="text-white text-md md:text-xl lg:text-2xl font-semibold mb-4">
           {title}
         </p>
-        <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
+        <div id={id} className="grid grid-cols-2 gap-2 md:grid-cols-4">
           {data.map((movie) => (
             <MovieCard key={movie.id} data={movie} />
           ))}

@@ -29,14 +29,23 @@ function HomePage() {
   const { data: favorites = [] } = useFavorites()
   const { isOpen, closeModal } = useInfoModal()
 
+  const scrollTo = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+      })
+    }
+  }
+
   return (
     <>
       <InfoModal visible={isOpen} onClose={closeModal} />
       <Navbar />
       <Billboard />
-      <div className="pb-40">
-        <MovieList title="Trending Now" data={movies} />
-        <MovieList title="My Favorites" data={favorites} />
+      <div className="pb-40" onClick={scrollTo.bind(null, 'trending')}>
+        <MovieList id="trending" title="Trending Now" data={movies} />
+        <MovieList id="favorites" title="My Favorites" data={favorites} />
       </div>
     </>
   )

@@ -12,6 +12,7 @@ const Navbar = () => {
   const [showAccountMenu, setShowAccountMenu] = useState(false)
   const [showBackGround, setShowBackground] = useState(false)
   const { data: user } = useCurrentUser()
+
   const avatarImage = user?.image || '/images/default-red.png'
 
   useEffect(() => {
@@ -33,6 +34,23 @@ const Navbar = () => {
     setShowAccountMenu(!showAccountMenu)
   }
 
+  const scrollTo = (event: any) => {
+    const id = event.currentTarget.id
+    if (id === 'home') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      })
+    } else if (id === 'list') {
+      const element = document.getElementById('trending')
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+        })
+      }
+    }
+  }
+
   return (
     <nav className="w-full fixed z-40">
       <div
@@ -47,12 +65,8 @@ const Navbar = () => {
         hidden
         lg:flex
         ">
-          <NavbarItem label="Home" />
-          <NavbarItem label="Series" />
-          <NavbarItem label="Films" />
-          <NavbarItem label="New & Popular" />
-          <NavbarItem label="My List" />
-          <NavbarItem label="Browse by languages" />
+          <NavbarItem id="home" label="Home" onClick={scrollTo as any} />
+          <NavbarItem id="list" label="My List" onClick={scrollTo as any} />
         </div>
         <div
           onClick={toggleMobileMenu}
