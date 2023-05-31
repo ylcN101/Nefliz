@@ -5,6 +5,7 @@ export interface ModalStoreInterface {
   isOpen: boolean
   openModal: (movieId: string) => void
   closeModal: () => void
+  openSearchModal: (search: string) => void
 }
 
 const useInfoModal = create<ModalStoreInterface>((set) => ({
@@ -12,6 +13,7 @@ const useInfoModal = create<ModalStoreInterface>((set) => ({
   isOpen: false,
   openModal: (movieId: string) => set({ isOpen: true, movieId }),
   closeModal: () => set({ isOpen: false, movieId: undefined }),
+  openSearchModal: () => set({ isOpen: true, movieId: undefined }),
 }))
 
 export default useInfoModal

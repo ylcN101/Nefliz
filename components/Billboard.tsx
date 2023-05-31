@@ -28,7 +28,7 @@ const Billboard = () => {
       <div className="absolute top-[30%] md:top-[40%] ml-4 md:ml-16">
         <p
           className="text-white
-         text-1xl 
+         text-4xl 
          md:text-5xl
           h-full w-[50%]
            lg:text-6xl 
@@ -36,10 +36,10 @@ const Billboard = () => {
             drop-shadow-xl">
           {data?.title}
         </p>
-        <p className="text-white text-[8px] md:text-lg mt-3 md:mt-8 w-[90%] md:w-[80] lg:w-[50] drop-shadow-xl">
+        <p className="text-white text-sm md:text-lg mt-3 md:mt-8 w-[90%] md:w-[80] lg:w-[50] drop-shadow-xl">
           {data?.description}
         </p>
-        <div className="flex flex-row items-center mt-3 md:mt-4 gap 3">
+        <div className="flex items-center mt-3 md:mt-4 gap 3">
           <PlayButton movieId={data?.id} />
           <button
             onClick={handleOpenModal}
@@ -58,7 +58,7 @@ const Billboard = () => {
           hover:bg-opacity-20
           transition
           ">
-            <AiOutlineInfoCircle className="mr-1" />
+            <AiOutlineInfoCircle size={25} className="mr-1" />
             More Info
           </button>
         </div>

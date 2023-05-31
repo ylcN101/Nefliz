@@ -6,6 +6,7 @@ import FavoriteButton from './FavoriteButton'
 
 import useInfoModal from '@/hooks/useInfoModal'
 import useMovie from '@/hooks/useMovie'
+import SearchInfo from './SearchInfo'
 
 interface InfoModalProps {
   visible?: boolean
@@ -60,14 +61,18 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
               <p className="text-white text-3xl md:text-4xl h-full lg:text-5xl font-bold mb-8">
                 {data?.title}
               </p>
-              <div className="flex gap-4 items-center">
-                <PlayButton movieId={data?.id} />
-                <FavoriteButton movieId={data?.id} />
-              </div>
+              {data?.id ? (
+                <div className="flex flex-row gap-4">
+                  <PlayButton movieId={data?.id} />
+                  <FavoriteButton movieId={data?.id} />
+                </div>
+              ) : (
+                <SearchInfo title={data?.title} />
+              )}
             </div>
           </div>
           <div className="px-12 py-8">
-            <p className="text-green-400 font-semibold text-lg">New</p>
+            <p className="text-green-400 font-semibold text-lg">{data?.year}</p>
             <p className="text-white text-lg">{data?.duration}</p>
             <p className="text-white text-lg">{data?.genre}</p>
             <p className="text-white text-lg">{data?.description}</p>

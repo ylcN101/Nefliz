@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
-import { BsBell, BsChevronDown, BsSearch } from 'react-icons/bs'
+import { useRouter } from 'next/router'
+import { BsBell, BsChevronDown, BsSearch, BsX } from 'react-icons/bs'
 import NavbarItem from './NavbarItem'
 import MobileMenu from './MobileMenu'
 import AccountMenu from './AccountMenu'
 import useCurrentUser from '@/hooks/useCurrentUser'
 
 const TOP_OFFSET = 70
-
 const Navbar = () => {
+  const router = useRouter()
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const [showAccountMenu, setShowAccountMenu] = useState(false)
   const [showBackGround, setShowBackground] = useState(false)
@@ -67,6 +68,9 @@ const Navbar = () => {
         ">
           <NavbarItem id="home" label="Home" onClick={scrollTo as any} />
           <NavbarItem id="list" label="My List" onClick={scrollTo as any} />
+          <NavbarItem label="Series" />
+          <NavbarItem label="Films" />
+          <NavbarItem label="New and Popular" />
         </div>
         <div
           onClick={toggleMobileMenu}
@@ -80,7 +84,9 @@ const Navbar = () => {
           <MobileMenu visible={showMobileMenu} />
         </div>
         <div className="flex flex-row ml-auto gap-7 items-center">
-          <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
+          <div
+            onClick={() => router.push('/search')}
+            className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
             <BsSearch />
           </div>
           <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
