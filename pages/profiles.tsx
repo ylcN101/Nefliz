@@ -22,6 +22,7 @@ export async function getServerSideProps(context: NextPageContext) {
 const Profiles = () => {
   const router = useRouter()
   const { data: user } = useCurrentUser()
+  const avatarImage = user?.image || '/images/default-red.png'
   return (
     <div className="flex items-center h-full justify-center">
       <div className="flex flex-col">
@@ -45,7 +46,11 @@ const Profiles = () => {
                 group-hover:border-white
                 overflow-hidden
                 ">
-                <img src="/images/default-blue.png" alt="Profile" />
+                <img
+                  src={avatarImage}
+                  alt="Avatar"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div
                 className="

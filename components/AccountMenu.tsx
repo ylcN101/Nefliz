@@ -8,6 +8,7 @@ interface AccountMenuProps {
 
 const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
   const { data } = useCurrentUser()
+  const avatarLogo = data?.image || '/images/default-red.png'
   if (!visible) return null
 
   return (
@@ -22,11 +23,7 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
           className="
         px-3 group/item flex flex-row gap-3 items-center w-full
         ">
-          <img
-            src="/images/default-blue.png"
-            alt="Logo"
-            className="w-8 rounded-md"
-          />
+          <img src={avatarLogo} alt="Logo" className="w-8 rounded-md" />
           <p className="text-white text-sm group-hover/item:underline">
             {data?.name}
           </p>

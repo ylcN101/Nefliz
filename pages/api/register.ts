@@ -33,7 +33,7 @@ export default async function handler(
         email,
         name,
         hashedPassword,
-        image: '',
+        image: `https://avatars.dicebear.com/api/avataaars/${email}.svg`,
         emailVerified: new Date(),
       },
     })

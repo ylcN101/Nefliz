@@ -3,6 +3,7 @@ import { BsBell, BsChevronDown, BsSearch } from 'react-icons/bs'
 import NavbarItem from './NavbarItem'
 import MobileMenu from './MobileMenu'
 import AccountMenu from './AccountMenu'
+import useCurrentUser from '@/hooks/useCurrentUser'
 
 const TOP_OFFSET = 70
 
@@ -10,6 +11,8 @@ const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const [showAccountMenu, setShowAccountMenu] = useState(false)
   const [showBackGround, setShowBackground] = useState(false)
+  const { data: user } = useCurrentUser()
+  const avatarImage = user?.image || '/images/default-red.png'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,7 +76,7 @@ const Navbar = () => {
             onClick={toggleAccountMenu}
             className="flex item-center gap-2 cursor-pointer relative">
             <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
-              <img src="/images/default-blue.png" alt="Profile" className="" />
+              <img src={avatarImage} alt="Avatar" className="w-full h-full" />
             </div>
             <BsChevronDown
               className={`text-white transition ${
